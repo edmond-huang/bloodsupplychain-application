@@ -1,5 +1,7 @@
 # 基于区块链的献血管理研究
 
+![hah](https://i.loli.net/2020/12/15/WyxSfUG5egiHThF.jpg)
+
 文案大致内容：
 
 #### 一：背景与现状
