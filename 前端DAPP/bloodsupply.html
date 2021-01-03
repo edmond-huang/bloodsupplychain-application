@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="web3.min.js"></script>
+    <!-- <link rel="stylesheet" href="app.css" /> -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>基于区块链的献血管理研究
+    </title>
+</head>
+
+<body>
+<h2>基于区块链的献血管理</h2>
+    ERC720 Address: <span class="ErcAddress"></span><button id="">getErc720</button>
+    <button class="enableEthereumButton">Enable Ethereum</button>
+    <h2>Account: <span class="showAccount"></span></h2>
+    <hr />
+
+
+<hr>
+<p>
+    RFID血袋所存储信息:
+    <br>
+    <br>
+    modelNum：<input type="text" value="" id="" placeholder="输入ID"><br>
+    <br>
+    donorname：<input type="text" value="" id="" placeholder="请输入献血者姓名"><br>
+    <br>
+    donorsex：<input type="text" value="" id="" placeholder="请输入献血者性别"><br>
+    <br>
+    site：<input type="text" value="" id="" placeholder="请输入献血点"><br>
+    <br>
+    bloodType：<input type="text" value="" id="" placeholder="请输入血液血型"><br>
+    <br>
+    <button onclick="addItem()">添加</button>
+    <span class="showadd"></span>
+</p><hr>
+
+<p>
+    血站信息:
+    <br>
+    <br>
+    血站名称：<input type="text" value="" id="" placeholder="请输入血站名称"><br>
+    <br>
+    <br>
+    <button onclick="addItem()">添加</button>
+    <span class="showadd"></span>
+</p><hr>
+
+    <script type="text/javascript" src="bloodsupply.js"></script>
+</body>
+
+</html>

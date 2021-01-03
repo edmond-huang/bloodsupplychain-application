@@ -1,11 +1,11 @@
-pragma solidity 0.7.0;
+pragma solidity ^0.7.0;
 contract BloodSupply {
     uint32 public rfbag_id = 0;     //血液ID
     uint32 public station_id = 0;   //血站
     uint32 public owner_id = 0;     //受助者
     
     struct rfbag{
-        string model;
+        string modelNum;
         string donorname;
         string donorsex;
         string site;
@@ -29,9 +29,6 @@ contract BloodSupply {
     struct ownership{    // 血液和受助者结合起来
         uint32 rfbagId;
         uint32 ownerId;
-        string usehospital;
-        string doctor;
-        string reason;
         uint32 trxtTimeStamp;
         address bloodOwner;
     }
@@ -55,15 +52,15 @@ contract BloodSupply {
         return(stations[_station_id].userName,stations[_station_id].stationAddress,stations[_station_id].stationType,stations[_station_id].passwd);
     }
     
-    function addrfbag(uint32 _ownerId,string memory _model,string memory _donorname,string memory _donorsex,string memory _site, uint256 _bloodml,string memory _btype) public returns(uint32) {
+    function addrfbag(uint32 _ownerId,string memory _modelNum,string memory _donorname,string memory _donorsex,string memory _site, uint256 _bloodml,string memory _btype) public returns(uint32) {
         if(keccak256(abi.encodePacked(stations[_ownerId].stationType)) == keccak256("station")) {
             uint32 rfbagId = rfbag_id++;
-            rfbags[rfbagId].model = _model;
+            rfbags[rfbagId].modelNum = _modelNum;
             rfbags[rfbagId].donorname = _donorname;
             rfbags[rfbagId].donorsex = _donorsex;
             rfbags[rfbagId].site = _site;
             rfbags[rfbagId].ml = _bloodml;
-            rfbags[rfbagId].bloodType = _btype;
+            rfbags[rfbagId].bloodType = _btype; 
             rfbags[rfbagId].bloodOwner = stations[_ownerId].stationAddress;  //将血液的权限转给血站
             rfbags[rfbagId].mfgTimeStamp = uint32(block.timestamp);
             
@@ -77,7 +74,7 @@ contract BloodSupply {
     }
     
     function getblood(uint32 _rfbagId) public view returns(string memory,string memory,string memory,string memory,uint256,address,uint32){
-      return (rfbags[_rfbagId].model,
+      return (rfbags[_rfbagId].modelNum,
         rfbags[_rfbagId].donorname,
         rfbags[_rfbagId].donorsex,
         rfbags[_rfbagId].site,
@@ -87,6 +84,7 @@ contract BloodSupply {
         
         );
     }
+    
      function newOwner(uint32 _user1Id,uint32 _user2Id, uint32 _rfbagId) onlyOwner(_rfbagId) public returns(bool){
         station memory p1 = stations[_user1Id];
         station memory p2 = stations[_user2Id];
@@ -133,21 +131,9 @@ contract BloodSupply {
     // function getProvenance(uint32 _bloodId) external view returns(uint32[] memory){
     //     return bloodTrack[_bloodId];
     // }
-     function addOwnership(string memory _usehospital,string memory _doctor,string memory _reason) public returns(uint32){
-        uint32 ownership_id = owner_id++;
-        ownerships[ownership_id].usehospital = _usehospital;
-        ownerships[ownership_id].doctor = _doctor;
-        ownerships[ownership_id].reason = _reason;
-
-        return ownership_id;
-    }
-        
-        
-    function getOwnership(uint32 _regId) public view returns (uint32,uint32,address,uint32,string memory,string memory,string memory) {
+    function getOwnership(uint32 _regId) public view returns (uint32,uint32,address,uint32){
         ownership memory r = ownerships[_regId];
-        return(r.rfbagId,r.ownerId,r.bloodOwner,r.trxtTimeStamp,r.usehospital,r.doctor,r.reason
-        );
-               
+        return(r.rfbagId,r.ownerId,r.bloodOwner,r.trxtTimeStamp);
     }
-  
+    
 }

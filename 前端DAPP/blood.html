@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>blood</title>
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="web3.min.js"></script>
+    </head>
+
+    <body>
+        <h3>blood</h3>
+        <button class="enableEthereumButton">Enable Ethereum</button>
+        <h2>Account: <span class="showAccount"></span></h2>
+        
+        <hr>
+        <h2>血站信息</h2>
+        <p>
+            名字:<br>
+            <input type="text" value="" id="name" placeholder=""><br>
+            时间<br>
+            <input type="text" value="" id="pass" placeholder=""><br>
+            类型<br>
+            <input type="text" value="" id="type" placeholder="合约功能，供转移血液用"><br>
+            地址<br>
+            <input type="text" value="" id="address" placeholder="合约功能，供转移血液用"><br>
+            <button onclick="addstation()">addstation</button>
+            <!-- <span class="showadd"></span> -->
+        </p><hr>
+
+        <!-- 获得信息 -->
+        <p>
+            <input type="text" value="" id="getstation" placeholder="请输入chainID">
+            <button onclick="getstation()">查询血站信息</button>
+            <span class="showstation"></span>
+        </p>
+        
+        <hr>
+        <h2>血液信息</h2>
+        <p>
+            所属血站的ID:<br>
+            <input type="text" value="" id="_ownerId" placeholder=""><br>
+            血型:<br>
+            <input type="text" value="" id="model" placeholder=""><br>
+            姓名<br>
+            <input type="text" value="" id="donorname" placeholder=""><br>
+            性别<br>
+            <input type="text" value="" id="donorsex" placeholder=""><br>
+            献血点<br>
+            <input type="text" value="" id="site" placeholder=""><br>
+            献血量<br>
+            <input type="text" value="" id="ml" placeholder=""><br>
+            type<br>
+            <input type="text" value="" id="bloodtype" placeholder=""><br>
+            <button onclick="addrfbag()">addblood</button>
+            <!-- <span class="showadd"></span> -->
+        </p><hr>
+        
+            <input type="text" value="" id="getblood" placeholder="请输入chainID">
+            <button onclick="getblood()">查询血液信息</button>
+            <span class="showblood"></span>
+        </p>
+
+        <hr>
+        <h2>血液使用去向</h2>
+        <p>
+            使用医院<br>
+            <input type="text" value="" id="usehospital" placeholder=""><br>
+            住址医生<br>
+            <input type="text" value="" id="doctor" placeholder=""><br>
+            病因<br>
+            <input type="text" value="" id="reason" placeholder=""><br>
+            <button onclick="addOwnership()">addreason</button>
+            <!-- <span class="showadd"></span> -->
+        </p><hr>
+        <p>
+            <input type="text" value="" id="getOwnership" placeholder="请输入chainID">
+            <button onclick="getOwnership()">查询</button>
+            <span class="showItem"></span>
+        </p>
+        <hr>
+        <h2>转移血液</h2>
+        <p>
+            user1Id<br>
+            <input type="text" value="" id="_user1Id" placeholder=""><br>
+            user2Id<br>
+            <input type="text" value="" id="_user2Id" placeholder=""><br>
+            血袋ID<br>
+            <input type="text" value="" id="_rfbagId" placeholder=""><br>
+            <button onclick="newOwner()">newOwner</button>
+            <!-- <span class="showadd"></span> -->
+        </p><hr>
+        <p>
+            <input type="text" value="" id="newOwner" placeholder="请输入chainID">
+            <button onclick="newOwner()">getID</button>
+            <span class="showItem"></span>
+        </p>
+    </body>
+    <script type="text/javascript" src="blood.js"></script>
+    <script>
+
+    </script>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
