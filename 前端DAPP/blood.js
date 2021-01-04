@@ -597,9 +597,9 @@ function getOwnership() {
 		function (result) {
             console.log(result);
 			$('.showItem').html(
-				"<p>"+ "使用医院：" +result[0] + " " + "</p>" +
-			"<p>"+ "主治医生：" +result[1]+ " " + "</p>" +
-			"<p>"+ "病因：" +result[2] + " " + "</p>"
+				"<p>"+ "使用医院：" +result[4] + " " + "</p>" +
+			"<p>"+ "主治医生：" +result[5]+ " " + "</p>" +
+			"<p>"+ "病因：" +result[6] + " " + "</p>"
 			)
 		}
 	);
